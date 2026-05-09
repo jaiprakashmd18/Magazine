@@ -24,7 +24,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Plus+Jakarta+Sans', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             -webkit-font-smoothing: antialiased;
         }
 
@@ -45,13 +45,13 @@
         .container { 
             max-width: 1300px; 
             margin: 0 auto; 
-            padding: 0 2.5rem; 
+            padding: 0 1.5rem; /* Adjusted for mobile */
             display: flex;
             flex-direction: column;
             align-items: stretch;
         }
 
-        section { padding: 120px 0; position: relative; }
+        section { padding: 80px 0; position: relative; } /* Reduced padding for mobile */
         
         .flex-center { display: flex; align-items: center; justify-content: center; }
         .flex-between { display: flex; align-items: center; justify-content: space-between; }
@@ -85,6 +85,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            white-space: nowrap;
         }
         .btn-primary { 
             background: #fff; 
@@ -106,168 +107,180 @@
 
         /* --- Navigation --- */
         nav {
-            position: fixed; top: 20px; width: 100%; z-index: 1000;
-            transition: var(--transition);
+            position: fixed; top: 15px; width: 100%; z-index: 1000;
         }
         .nav-inner {
-            height: 70px;
-            padding: 0 2rem;
-            margin: 0 2rem;
+            height: 60px;
+            padding: 0 1.5rem;
+            margin: 0 1rem;
             background: rgba(8, 8, 10, 0.7);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
+            border-radius: 18px;
             backdrop-filter: blur(15px);
         }
         .logo { 
-            font-size: 2rem; 
+            font-size: 1.8rem; 
             font-weight: 800; 
             color: #fff; 
             text-decoration: none; 
             letter-spacing: -2px;
         }
-        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-        .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+        .nav-links a { color: var(--text-dim); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: 0.3s; }
         .nav-links a:hover { color: #fff; }
 
         /* --- Hero Section --- */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1fr;
             align-items: center;
-            gap: 40px;
-            padding-top: 80px;
+            gap: 60px;
+            padding-top: 120px;
+            text-align: center;
         }
-        .hero-text h1 { font-size: clamp(3.5rem, 7vw, 6rem); line-height: 1; margin-bottom: 1.5rem; }
-        .hero-text p { font-size: 1.25rem; color: var(--text-dim); max-width: 550px; margin-bottom: 2.5rem; }
+        .hero-text h1 { font-size: clamp(2.8rem, 8vw, 5.5rem); line-height: 1; margin-bottom: 1.5rem; }
+        .hero-text p { font-size: 1.1rem; color: var(--text-dim); max-width: 550px; margin: 0 auto 2.5rem; }
         
         .hero-visual {
             position: relative;
-            height: 600px;
+            height: 350px;
             perspective: 1500px;
+            display: flex;
+            justify-content: center;
         }
         .mag-stack {
             position: relative;
             width: 100%;
+            max-width: 400px;
             height: 100%;
             transform-style: preserve-3d;
         }
         .stack-card {
             position: absolute;
-            width: 320px;
-            height: 440px;
-            border-radius: 20px;
+            width: 200px;
+            height: 280px;
+            border-radius: 15px;
             background-size: cover;
             background-position: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
             border: 1px solid rgba(255,255,255,0.1);
             transition: var(--transition);
         }
-        .card-main { top: 10%; right: 10%; z-index: 3; background-image: url('https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=600'); transform: rotateY(-10deg) rotateX(5deg); }
-        .card-sub { top: 20%; right: 30%; z-index: 2; background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=600'); transform: rotateY(-20deg) scale(0.9); opacity: 0.6; }
+        .card-main { top: 0; left: 50%; transform: translateX(-40%) rotateY(-10deg) rotateX(5deg); z-index: 3; background-image: url('https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=600'); }
+        .card-sub { top: 20px; left: 50%; transform: translateX(-70%) rotateY(-20deg) scale(0.9); z-index: 2; background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&q=80&w=600'); opacity: 0.6; }
 
         /* --- Grid Section --- */
-        .section-tag { color: var(--accent-primary); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 1rem; display: block; text-align: center; }
-        .section-title { font-size: 3rem; text-align: center; margin-bottom: 3.5rem; }
+        .section-tag { color: var(--accent-primary); font-weight: 700; text-transform: uppercase; font-size: 0.75rem; letter-spacing: 2px; margin-bottom: 1rem; display: block; text-align: center; }
+        .section-title { font-size: 2.2rem; text-align: center; margin-bottom: 3rem; padding: 0 10px; }
 
-        .filter-wrap { display: flex; justify-content: center; gap: 10px; margin-bottom: 3rem; }
+        .filter-wrap { display: flex; justify-content: center; gap: 8px; margin-bottom: 3rem; flex-wrap: wrap; }
         .filter-btn { 
             background: transparent; border: 1px solid var(--glass-border); 
-            color: var(--text-dim); padding: 10px 24px; border-radius: 12px; cursor: pointer; transition: 0.3s; 
+            color: var(--text-dim); padding: 8px 18px; border-radius: 10px; cursor: pointer; transition: 0.3s; font-size: 0.85rem;
         }
         .filter-btn.active { background: #fff; color: #000; border-color: #fff; }
 
         .magazine-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
         }
         .mag-item {
             cursor: pointer;
             position: relative;
+            text-align: left;
         }
         .mag-image-box {
             position: relative;
             width: 100%;
-            height: 420px;
+            height: 380px;
             border-radius: 20px;
             overflow: hidden;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
             background: #111;
         }
         .mag-image-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s ease; }
         .mag-item:hover img { transform: scale(1.08); }
-        .mag-item h4 { font-size: 1.2rem; margin-bottom: 0.4rem; }
-        .mag-item span { color: var(--text-dim); font-size: 0.85rem; }
+        .mag-item h4 { font-size: 1.1rem; margin-bottom: 0.3rem; }
+        .mag-item span { color: var(--text-dim); font-size: 0.8rem; }
 
         /* --- Features & Stats --- */
         .stats-strip {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-            margin-top: 50px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 20px;
         }
-        .stat-card { padding: 40px; text-align: center; }
-        .stat-card h2 { font-size: 3.5rem; color: var(--accent-secondary); margin-bottom: 10px; }
+        .stat-card { padding: 20px; text-align: center; }
+        .stat-card h2 { font-size: 2.5rem; color: var(--accent-secondary); margin-bottom: 5px; }
 
         /* --- Pricing --- */
         .pricing-wrap {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            align-items: center;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            align-items: stretch;
         }
-        .p-card { padding: 50px 40px; display: flex; flex-direction: column; height: 100%; }
-        .p-card.featured { border: 2px solid var(--accent-primary); transform: scale(1.05); background: rgba(124, 77, 255, 0.03); }
-        .p-price { font-size: 4rem; margin: 2rem 0; font-weight: 800; }
+        .p-card { padding: 40px 30px; display: flex; flex-direction: column; height: 100%; }
+        .p-card.featured { border: 2px solid var(--accent-primary); background: rgba(124, 77, 255, 0.03); }
+        .p-price { font-size: 3.5rem; margin: 1.5rem 0; font-weight: 800; }
         .p-price span { font-size: 1rem; color: var(--text-dim); }
-        .p-features { list-style: none; margin-bottom: 2rem; flex-grow: 1; }
-        .p-features li { margin-bottom: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 10px; }
+        .p-features { list-style: none; margin-bottom: 2rem; flex-grow: 1; text-align: left; }
+        .p-features li { margin-bottom: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 10px; font-size: 0.95rem; }
         .p-features li::before { content: "→"; color: var(--accent-primary); }
 
         /* --- Modal --- */
         .modal-overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+            position: fixed; inset: 0; background: rgba(0,0,0,0.95);
             backdrop-filter: blur(20px); z-index: 2000;
-            display: none; opacity: 0; transition: 0.4s; padding: 40px;
+            display: none; opacity: 0; transition: 0.4s; padding: 20px;
+            overflow-y: auto;
         }
         .modal-overlay.active { display: flex; opacity: 1; }
         .modal-box {
-            max-width: 1100px; width: 100%; margin: auto;
-            display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-            align-items: center;
+            max-width: 900px; width: 100%; margin: auto;
+            display: grid; grid-template-columns: 1fr; gap: 30px;
+            align-items: center; padding: 40px 0;
         }
-        .modal-img { border-radius: 30px; width: 100%; box-shadow: 0 50px 100px rgba(0,0,0,0.5); }
+        .modal-img { border-radius: 20px; width: 100%; max-height: 50vh; object-fit: cover; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
 
         /* --- Footer --- */
-        footer { padding: 100px 0 50px; border-top: 1px solid var(--glass-border); margin-top: 100px; }
-        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 50px; }
-        .footer-col h5 { margin-bottom: 1.5rem; font-size: 1.1rem; }
+        footer { padding: 60px 0 30px; border-top: 1px solid var(--glass-border); margin-top: 60px; }
+        .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; text-align: center; }
+        .footer-col h5 { margin-bottom: 1.2rem; font-size: 1rem; }
         .footer-col ul { list-style: none; }
-        .footer-col li { margin-bottom: 10px; }
-        .footer-col a { color: var(--text-dim); text-decoration: none; transition: 0.3s; }
+        .footer-col li { margin-bottom: 8px; }
+        .footer-col a { color: var(--text-dim); text-decoration: none; transition: 0.3s; font-size: 0.9rem; }
         .footer-col a:hover { color: #fff; }
 
-        /* --- Animations --- */
-        .reveal { opacity: 0; transform: translateY(40px); transition: 1s cubic-bezier(0.22, 1, 0.36, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
-
-        /* --- Responsive --- */
-        @media (max-width: 1100px) {
-            .hero { grid-template-columns: 1fr; text-align: center; height: auto; padding-top: 180px; }
-            .hero-text p { margin-left: auto; margin-right: auto; }
-            .magazine-grid { grid-template-columns: repeat(2, 1fr); }
-            .pricing-wrap { grid-template-columns: 1fr; }
-            .modal-box { grid-template-columns: 1fr; text-align: center; }
-            .hero-visual { height: 400px; }
-            .stack-card { width: 260px; height: 360px; }
+        /* --- Desktop & Tablet Adaptations --- */
+        @media (min-width: 768px) {
+            section { padding: 120px 0; }
+            .hero { grid-template-columns: 1.1fr 0.9fr; text-align: left; }
+            .hero-text p { margin-left: 0; }
+            .hero-visual { height: 500px; justify-content: flex-end; }
+            .stack-card { width: 300px; height: 420px; }
+            .stats-strip { grid-template-columns: repeat(4, 1fr); padding: 40px; }
+            .section-title { font-size: 3rem; }
+            .pricing-wrap { grid-template-columns: repeat(3, 1fr); }
+            .footer-grid { grid-template-columns: 1.5fr 1fr 1fr 1fr; text-align: left; }
+            .modal-box { grid-template-columns: 1fr 1fr; gap: 60px; }
+            .modal-img { max-height: none; }
+            .nav-inner { height: 70px; margin: 0 2rem; padding: 0 2rem; }
         }
-        @media (max-width: 600px) {
-            .magazine-grid { grid-template-columns: 1fr; }
-            .footer-grid { grid-template-columns: 1fr; }
-            .nav-inner { margin: 0 1rem; padding: 0 1rem; }
+
+        /* --- Small Mobile Tweak --- */
+        @media (max-width: 480px) {
+            .hero-text h1 { font-size: 2.5rem; }
+            .btn { width: 100%; justify-content: center; }
+            .flex-center { flex-direction: column; width: 100%; }
             .nav-links { display: none; }
         }
+
+        .reveal { opacity: 0; transform: translateY(30px); transition: 1s cubic-bezier(0.22, 1, 0.36, 1); }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
     </style>
 </head>
 <body>
@@ -279,22 +292,21 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#magazines">Editions</a></li>
                 <li><a href="#pricing">Membership</a></li>
-                <li><a href="#about">Studio</a></li>
             </ul>
-            <a href="#pricing" class="btn btn-primary" style="padding: 10px 24px;">Get Access</a>
+            <a href="#pricing" class="btn btn-primary" style="padding: 8px 20px; font-size: 0.8rem;">Access</a>
         </div>
     </nav>
 
     <div class="container">
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section class="hero" id="home">
             <div class="hero-text">
-                <span class="section-tag" style="text-align: left;">The Future of Print is Digital</span>
+                <span class="section-tag" style="text-align: inherit;">The Future of Print</span>
                 <h1 class="reveal">Next-Gen <br><span class="gradient-text">Journalism.</span></h1>
-                <p class="reveal">A high-fidelity reading experience tailored for the modern intellectual. Curated stories, immersive visuals, and no distractions.</p>
-                <div class="flex-center" style="justify-content: flex-start; gap: 20px;">
-                    <a href="#magazines" class="btn btn-primary">Explore Editions</a>
-                    <a href="#" class="btn btn-outline">Watch Trailer</a>
+                <p class="reveal">A high-fidelity reading experience tailored for the modern intellectual. Curated stories, immersive visuals.</p>
+                <div class="flex-center" style="gap: 15px;">
+                    <a href="#magazines" class="btn btn-primary">Explore</a>
+                    <a href="#" class="btn btn-outline">Trailer</a>
                 </div>
             </div>
             <div class="hero-visual reveal">
@@ -305,7 +317,7 @@
             </div>
         </section>
 
-        <!-- Stats Section -->
+        <!-- Stats -->
         <section class="reveal">
             <div class="glass stats-strip">
                 <div class="stat-card">
@@ -327,24 +339,22 @@
             </div>
         </section>
 
-        <!-- Magazine Showcase -->
+        <!-- Showcase -->
         <section id="magazines">
             <span class="section-tag">The Collection</span>
             <h2 class="section-title reveal">Monthly Editions</h2>
             
             <div class="filter-wrap reveal">
                 <button class="filter-btn active" onclick="filterMags('all', this)">All</button>
-                <button class="filter-btn" onclick="filterMags('tech', this)">Technology</button>
+                <button class="filter-btn" onclick="filterMags('tech', this)">Tech</button>
                 <button class="filter-btn" onclick="filterMags('design', this)">Design</button>
-                <button class="filter-btn" onclick="filterMags('lifestyle', this)">Lifestyle</button>
+                <button class="filter-btn" onclick="filterMags('lifestyle', this)">Life</button>
             </div>
 
-            <div class="magazine-grid" id="mag-container">
-                <!-- JS Inject -->
-            </div>
+            <div class="magazine-grid" id="mag-container"></div>
         </section>
 
-        <!-- Pricing Section -->
+        <!-- Pricing -->
         <section id="pricing">
             <span class="section-tag">Pricing</span>
             <h2 class="section-title reveal">Membership Plans</h2>
@@ -354,7 +364,6 @@
                     <div class="p-price">$0<span>/mo</span></div>
                     <ul class="p-features">
                         <li>3 Preview articles/mo</li>
-                        <li>Weekly Newsletter</li>
                         <li>Standard resolution</li>
                     </ul>
                     <button class="btn btn-outline">Current Plan</button>
@@ -366,7 +375,6 @@
                         <li>Unlimited Access</li>
                         <li>Interactive 4K Media</li>
                         <li>Offline Reading</li>
-                        <li>Early Access to Editions</li>
                     </ul>
                     <button class="btn btn-primary">Go Pro</button>
                 </div>
@@ -375,7 +383,6 @@
                     <div class="p-price">$29<span>/mo</span></div>
                     <ul class="p-features">
                         <li>Everything in Pro</li>
-                        <li>Exclusive Interviews</li>
                         <li>Physical Hardcopies</li>
                         <li>Member-only Events</li>
                     </ul>
@@ -383,55 +390,43 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Subscribe -->
+        <section class="reveal">
+            <div class="glass" style="padding: 40px; text-align: center; background: linear-gradient(135deg, rgba(124, 77, 255, 0.1), transparent);">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem;">Join the Inner Circle</h2>
+                <div class="flex-center" style="gap: 10px; margin-top: 20px;">
+                    <input type="email" placeholder="Email" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 14px; border-radius: 12px; color: #fff; width: 100%; max-width: 300px; outline: none;">
+                    <button class="btn btn-primary">Join</button>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <!-- Payment / Contact Footer Segment -->
-    <section class="container reveal">
-        <div class="glass" style="padding: 80px; text-align: center; background: linear-gradient(135deg, rgba(124, 77, 255, 0.1), transparent);">
-            <h2 style="font-size: 3rem; margin-bottom: 1.5rem;">Join the ZU Inner Circle</h2>
-            <p style="color: var(--text-dim); margin-bottom: 2.5rem; max-width: 600px; margin-inline: auto;">Subscribe to get the latest digital stories and tech insights delivered to your screen.</p>
-            <div class="flex-center" style="gap: 15px; flex-wrap: wrap;">
-                <input type="email" placeholder="Enter your email" style="background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border); padding: 16px 24px; border-radius: 14px; color: #fff; width: 300px; outline: none;">
-                <button class="btn btn-primary">Subscribe</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <a href="#" class="logo">ZU</a>
-                    <p style="color: var(--text-dim); margin-top: 20px;">Redefining the digital editorial experience since 2024.</p>
+                    <p style="color: var(--text-dim); margin-top: 15px;">Redefining luxury since 2024.</p>
                 </div>
                 <div class="footer-col">
                     <h5>Platform</h5>
                     <ul>
-                        <li><a href="#">The App</a></li>
+                        <li><a href="#">App</a></li>
                         <li><a href="#">Archive</a></li>
-                        <li><a href="#">Newsletter</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h5>Company</h5>
-                    <ul>
-                        <li><a href="#">About ZU</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press Kit</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
                     <h5>Connect</h5>
                     <ul>
                         <li><a href="#">Instagram</a></li>
-                        <li><a href="#">X (Twitter)</a></li>
                         <li><a href="#">Discord</a></li>
                     </ul>
                 </div>
             </div>
-            <div style="margin-top: 80px; text-align: center; color: var(--text-dim); font-size: 0.85rem;">
-                &copy; 2026 ZU EDITORIAL. ALL RIGHTS RESERVED.
+            <div style="margin-top: 50px; text-align: center; color: var(--text-dim); font-size: 0.75rem;">
+                &copy; 2026 ZU EDITORIAL.
             </div>
         </div>
     </footer>
@@ -440,12 +435,12 @@
     <div class="modal-overlay" id="modal">
         <div class="modal-box">
             <img src="" alt="Cover" class="modal-img" id="modal-img">
-            <div>
+            <div style="text-align: left;">
                 <span class="section-tag" id="modal-tag">Tech</span>
-                <h2 style="font-size: 3rem; margin-bottom: 1.5rem;" id="modal-title">The Future of AI</h2>
-                <p style="color: var(--text-dim); margin-bottom: 2.5rem;" id="modal-desc">Detailed look into the architecture of tomorrow...</p>
-                <div class="flex-center" style="justify-content: flex-start; gap: 20px;">
-                    <button class="btn btn-primary">Read Issue</button>
+                <h2 style="font-size: 2.2rem; margin-bottom: 1rem;" id="modal-title">Title</h2>
+                <p style="color: var(--text-dim); margin-bottom: 2rem;" id="modal-desc">Description</p>
+                <div class="flex-center" style="justify-content: flex-start; gap: 15px;">
+                    <button class="btn btn-primary">Read</button>
                     <button class="btn btn-outline" onclick="closeModal()">Close</button>
                 </div>
             </div>
@@ -459,9 +454,7 @@
             { id: 3, title: "Urban Zenith", cat: "lifestyle", img: "https://images.unsplash.com/photo-1449156003053-930c76428d99?w=600", desc: "Penthouse living in the 22nd century." },
             { id: 4, title: "Silicon Souls", cat: "tech", img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600", desc: "When machines begin to dream." },
             { id: 5, title: "Modern Noir", cat: "design", img: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600", desc: "The resurgence of dark aesthetics." },
-            { id: 6, title: "Global Pulse", cat: "lifestyle", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600", desc: "Connectivity in a fractured world." },
-            { id: 7, title: "Cyber Nature", cat: "tech", img: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=600", desc: "Synthesizing ecosystems for Mars." },
-            { id: 8, title: "Minimalist Luxe", cat: "design", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600", desc: "Wealth in the age of subtraction." }
+            { id: 6, title: "Global Pulse", cat: "lifestyle", img: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600", desc: "Connectivity in a fractured world." }
         ];
 
         function initMags() {
@@ -480,13 +473,8 @@
         function filterMags(cat, btn) {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
             document.querySelectorAll('.mag-item').forEach(item => {
-                if (cat === 'all' || item.dataset.cat === cat) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
+                item.style.display = (cat === 'all' || item.dataset.cat === cat) ? 'block' : 'none';
             });
         }
 
@@ -494,35 +482,32 @@
             const mag = magData.find(m => m.id === id);
             document.getElementById('modal-img').src = mag.img;
             document.getElementById('modal-title').innerText = mag.title;
-            document.getElementById('modal-desc').innerText = mag.desc + " This exclusive ZU edition features over 50 pages of high-resolution concepts and expert analysis.";
+            document.getElementById('modal-desc').innerText = mag.desc;
             document.getElementById('modal-tag').innerText = mag.cat;
             document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
             document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
         }
 
-        // Counter Logic
         function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            counters.forEach(counter => {
+            document.querySelectorAll('.counter').forEach(counter => {
                 const target = +counter.getAttribute('data-target');
                 const updateCount = () => {
-                    const count = +counter.innerText;
-                    const inc = target / 100;
+                    const count = +counter.innerText.replace('+','');
+                    const inc = target / 80;
                     if (count < target) {
                         counter.innerText = Math.ceil(count + inc);
                         setTimeout(updateCount, 20);
-                    } else {
-                        counter.innerText = target + "+";
-                    }
+                    } else { counter.innerText = target + "+"; }
                 };
                 updateCount();
             });
         }
 
-        // Scroll Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -536,16 +521,6 @@
             initMags();
             document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
         };
-
-        // Smooth Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
     </script>
 </body>
 </html>
